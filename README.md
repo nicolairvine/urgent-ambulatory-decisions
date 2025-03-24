@@ -10,10 +10,12 @@ This code is shared to allow other interested modellers who may wish to know how
 I also share here for peer reviewers of published work resulting from the model's use
 
 ## Key points to know if using to compare/explore code used
+The model was built in NetLogo V6.2.0. Verfication, validation, and scenario testing were done via the 'nlrx' package for R and the data collection requirements were too large for NetLogo
+
 The DES is used to reproduced days of week (weekday versus weekend), staff shift changes, peaks/troughs of demand, and regular organisational events that affect patient movement
 All other behaviours are part of an agent based model
 
-The methods are integrated - scheduled events as disrupted by emergent outcomes of agents, and scheduled events regulate which agents are active in the system
+The methods are integrated - scheduled events as disrupted by emergent outcomes of agents, and scheduled events regulate which agents are active in the system (see below)
 
 The time extenstion is used to produce a clock in the model for collecting data (model state at different times of the day), to support verification, and validation. 
 At the time of creating, the discrete event package for NetLogo was not functioning (i'm not sure if this has changed)
@@ -95,6 +97,7 @@ A sub-model was included to collect data throughout model runs:
 Patient Level
 - Lengths of delay to starting care for each area per patient delayed >5mins
 - Lengths of stay in department
+- Health utility change (upon model exit)
 
 Staff level:
 - Accuracy of early allocation decisions per week (to validate decision-maker sub-model)
@@ -115,12 +118,33 @@ The GUI also provides real-time updates of expected patients by area allocated, 
 These and all other model outputs are stored in csv. files and collated at the end of model runs
 
 ### Integration of DES and ABM
-The model was built in NetLogo V6.2.0. Verfication, validation, and scenario testing were done via the 'nlrx' package for R and the data collection requirements were too large for NetLogo
+The Figure below is the conceptual model of the early senior decision-making in the AMU. The diagram shows patient movement through the system, with boxes representing patient states and arrows showing transitions. Dashed arrows indicate integration points between agent-based and discrete event sub-models. Arrow polarity (+/-) indicates whether the source event increases or decreases the target process. Key model elements include patient creation from referrals, decision-making processes, and resource allocation
 
 
 ![Figure 1: Conceptual model of early expert decision-making in an acute medical unit](https://github.com/user-attachments/assets/a34fe6fc-b112-4e94-a576-1067c3a886d9)
 ![image](https://github.com/user-attachments/assets/c96d4d71-c7db-4cb5-9782-90a9055c4f5a)
 
+The model was created following ethnographic observation of and data collection in a representative AMU in the UK.
 
+###Technical implementation details
+The model runs in one minute time steps, simulating four months of AMU activity starting from 18/10/2019 00:00. At any given time, each patients in the system belongs to one of 12 status categories (shown below) that reflect their current state – for example, whether they are waiting for allocation, receiving care in a bed, or awaiting transport home. 
 
+Patient status categories
+1.	Waiting to be allocated
+2.	In-patient allocated travelling to hospital
+3.	AEC-allocated travelling to hospital
+4.	In-patient allocated awaiting bed
+5.	In-patient allocated receiving care in a bed
+6.	In-patient allocated receiving care in the AEC facility
+7.	In-patient allocated awaiting transport home
+8.	In-patient allocated receiving care but suitable to transfer before care complete
+9.	AEC- allocated awaiting AEC facility space
+10.	AEC- allocated receiving care in the AEC facility
+11.	AEC-assigned receiving care in a bed
+12.	AEC-assigned awaiting transport home
+
+These patient categories update dynamically based on based on both individual factors (such as treatment stage and allocated pathway) and environmental system conditions (such as AEC resource availability). As patients progress through their care journey and queues form or dissolve, the categories update accordingly. This categorisation allows us to track key system metrics at each time step, including, occupancy levels, anticipated arrivals, delays, and resource availability. 
+
+### Adjustments
+The model is designed to run on the base case staffing scenario
 
