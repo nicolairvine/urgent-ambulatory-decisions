@@ -118,7 +118,7 @@ These and all other model outputs are stored in csv. files and collated at the e
 The model was built in NetLogo V6.2.0. Verfication, validation, and scenario testing were done via the 'nlrx' package for R and the data collection requirements were too large for NetLogo
 
 
-![alt text](![image](https://github.com/user-attachments/assets/a34fe6fc-b112-4e94-a576-1067c3a886d9))
+![alt text]![image](https://github.com/user-attachments/assets/a34fe6fc-b112-4e94-a576-1067c3a886d9)
 
 
 
