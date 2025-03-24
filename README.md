@@ -82,22 +82,22 @@ The simple logic compare the patient variable with the expertise variable and al
 
 ## Model outputs
 A sub-model was included to collect data throughout model runs:
-System Level:
-Occupancy per minute (in-patient and clinic areas)
-System failure events (each patient diverted due to no capacity)
-Proportion of patients referred who were delayed to accessing a clinical space per day
-Proportion of patients discharged who did so within 24hrs per day
-Proportion of patients admitted per day
-Proportion of patient placed in the non-allocated area to start care per day
-Proportion of patients transferred to another ward (admitted) between 0300-0800hrs per day
-Proportion of patients with a positive experience of care per day
+- System Level:
+- Occupancy per minute (in-patient and clinic areas)
+- System failure events (each patient diverted due to no capacity)
+- Proportion of patients referred who were delayed to accessing a clinical space per day
+- Proportion of patients discharged who did so within 24hrs per day
+- Proportion of patients admitted per day
+- Proportion of patient placed in the non-allocated area to start care per day
+- Proportion of patients transferred to another ward (admitted) between 0300-0800hrs per day
+- Proportion of patients with a positive experience of care per day
 
 Patient Level
-Lengths of delay to starting care for each area per patient delayed >5mins
-Lengths of stay in department
+- Lengths of delay to starting care for each area per patient delayed >5mins
+- Lengths of stay in department
 
 Staff level:
-Accuracy of early allocation decisions per week
+- Accuracy of early allocation decisions per week (to validate decision-maker sub-model)
 
 ### General User Interface
 The GUI user has control to allow adjustment of:
@@ -112,11 +112,13 @@ The GUI user has control to allow adjustment of:
 
 The GUI is a simple reproduction of the department with a color key to identify patient.
 The GUI also provides real-time updates of expected patients by area allocated, occupancy levels, daily numbers of patient delayed >5mins, daily proportion of discharges/admissions
+These and all other model outputs are stored in csv. files and collated at the end of model runs
 
 ### Integration of DES and ABM
 The model was built in NetLogo V6.2.0. Verfication, validation, and scenario testing were done via the 'nlrx' package for R and the data collection requirements were too large for NetLogo
 
 
+![alt text](![image](https://github.com/user-attachments/assets/a34fe6fc-b112-4e94-a576-1067c3a886d9))
 
 
 
