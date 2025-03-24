@@ -104,18 +104,16 @@ Staff level:
 
 ### General User Interface
 The GUI user has control to allow adjustment of:
-- Staff numbers and shifts
+- Staffing configurations - number and work pattern
 - Mean daily demand
-- Threshold of high occupancy tolerance (overcrowding)
 - Proportion of patients suitable for admission avoidance in the population
-- Proportion of discharges from in-patient areas
-- Proportion of admissions from the clinic
 - Opening and closing hours of the clinic
 - Hours of peak demand
 
 The GUI is a simple reproduction of the department with a color key to identify patient.
-The GUI also provides real-time updates of expected patients by area allocated, occupancy levels, daily numbers of patient delayed >5mins, daily proportion of discharges/admissions
-These and all other model outputs are stored in csv. files and collated at the end of model runs
+The GUI also provides real-time updates of expected patients by area allocated.
+It also plots occupancy levels and daily numbers of patient delayed >5mins (after 2 week model warm-up), along with other outputs to check model functioning as it runs
+These and all other model outputs are stored in csv. files (folder space left blank)
 
 ### Integration of DES and ABM
 The Figure below is the conceptual model of the early senior decision-making in the AMU. The diagram shows patient movement through the system, with boxes representing patient states and arrows showing transitions. Dashed arrows indicate integration points between agent-based and discrete event sub-models. Arrow polarity (+/-) indicates whether the source event increases or decreases the target process. Key model elements include patient creation from referrals, decision-making processes, and resource allocation
@@ -146,5 +144,8 @@ Patient status categories
 These patient categories update dynamically based on based on both individual factors (such as treatment stage and allocated pathway) and environmental system conditions (such as AEC resource availability). As patients progress through their care journey and queues form or dissolve, the categories update accordingly. This categorisation allows us to track key system metrics at each time step, including, occupancy levels, anticipated arrivals, delays, and resource availability. 
 
 ### Adjustments
-The model is designed to run on the base case staffing scenario
+The model initiates with the case study site demand/prevalence patterns, opening closing times of the clinic services, and mean 'expertise' of staff but these can be adjusted following model set up at the GUI
+The GUI prompts the user to select staff and adjust parameters as necessary
+
+The resources beyond staff and opening times are hard coded but could be changed to relfect a preferred number of in-patient beds/clinic spaces
 
