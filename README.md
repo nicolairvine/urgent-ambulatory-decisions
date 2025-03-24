@@ -7,7 +7,9 @@ This is the Netlogo code for the hybrid agent based and discrete event simulatio
 The code was finalised for generating model outputs in late 2022 and has not been adapted or changed since then
 
 This code is shared to allow other interested modellers who may wish to know how others have programmed a hybrid in model in NetLogo. It is not perfect and is complicated.
-I also share here for peer reviewers of published work resulting from the model's use
+I also share here for peer reviewers of published work resulting from the model's use.
+
+The code is licensed under Creative Commons Attribution 4.0 International. Please see the CC A 4.1 document uploaded for information about usage and sharing of the information contained
 
 ## Key points to know if using to compare/explore code used
 The model was built in NetLogo V6.2.0. Verfication, validation, and scenario testing were done via the 'nlrx' package for R and the data collection requirements were too large for NetLogo
